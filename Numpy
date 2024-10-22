@@ -1,17 +1,20 @@
-## Introduction to NumPy
+
+NumPy Crash Course
+
+Introduction to NumPy
 
 
 * NumPy is a fundamental package for scientific computing in Python.
 * It provides a multi-dimensional array object called 'ndarray' and various derived objects such as matrices and tensors.
 * NumPy offers a set of routines for fast operations on arrays, including:
-Mathematical operations
-Logical operations
-Sorting, selecting
-Input/output
-Fourier transforms
-Basic linear algebra
-Basic statistics operations
-Random simulation
+*Mathematical operations
+*Logical operations
+*Sorting, selecting
+*Input/output
+*Fourier transforms
+*Basic linear algebra
+*Basic statistics operations
+*Random simulation
 Why NumPy?
 
 
@@ -186,4 +189,146 @@ We can split arrays into smaller arrays either horizontally or vertically using 
 * They support a wide range of scalar and vector operations.
 * Indexing and slicing allow us to access and manipulate individual elements or subsets of elements.
 * Reshaping, stacking, and splitting arrays allow us to transform and reorganize data as needed.
+
+
+What is NumPy and why is it better than Python Lists?
+
+
+NumPy (Numerical Python) is a Python library that provides a powerful N-dimensional array object and useful linear algebra, Fourier transform, and random number capabilities. It is particularly optimized for numerical operations on large datasets and provides high performance and efficiency.
+
+Compared to Python lists, NumPy arrays offer several advantages:
+Speed of Execution
+
+
+NumPy arrays are significantly faster for numerical operations than Python lists. NumPy uses optimized C-based code, while Python lists are implemented in Python, which is slower.
+Memory Occupation
+
+
+NumPy arrays are more memory-efficient than Python lists. NumPy stores data contiguously in memory, while Python lists create individual objects for each element, leading to higher memory consumption.
+Convenience
+
+
+NumPy provides a convenient and concise syntax for numerical operations. Its array-oriented operations allow for easy manipulation and calculations, making it more convenient for data analysis tasks.
+Advanced Indexing
+
+
+NumPy supports various indexing methods that provide flexibility and efficiency in accessing array elements:
+
+- **Fancy indexing:** Allows you to select elements using a list of indices.
+- **Boolean indexing:** Enables you to filter and select elements based on boolean conditions.
+Conditional Operations
+
+
+NumPy allows you to perform conditional operations on arrays using comparison operators and Boolean arrays. This enables efficient filtering and selection of elements based on specific criteria.
+Conclusion
+
+
+NumPy is a powerful and efficient library for numerical operations, providing significant advantages over Python lists in terms of speed, memory usage, convenience, advanced indexing, and conditional operations. It is widely used in data science, machine learning, and other fields that require high-performance numerical computations.
+Understanding Broadcasting in NumPy
+
+Defining the Rules for Broadcasting
+
+
+When dealing with arrays in NumPy, broadcasting is a crucial concept that allows operations to be performed between arrays of different dimensions. The rules for broadcasting are as follows:
+
+1. **Dimensions must match:** The arrays must have the same number of dimensions.
+2. **Matching dimensions:** The dimensions that do not match must be equal to 1 (i.e., they are broadcastable).
+3. **Dimension size:** If the dimensions of two arrays do not match and are not broadcastable, an error is raised.
+Examples of Broadcasting
+
+
+Consider the following examples:
+
+**Example 1:** Arrays with mismatched dimensions
+
+```
+import numpy as np
+
+a = np.array([4, 3])
+b = np.array([[1, 2], [3, 4]])
+
+print(a + b)
+```
+
+Output:
+
+```
+ValueError: operands could not be broadcast together with shapes (2,) (2, 2)
+```
+
+In this example, the arrays `a` and `b` have different dimensions (1D vs. 2D), and the non-matching dimension is not equal to 1. Therefore, broadcasting cannot be performed, and an error is raised.
+
+**Example 2:** Arrays with broadcastable dimensions
+
+```
+a = np.array([[1, 2], [3, 4]])
+b = np.array([1])
+
+print(a + b)
+```
+
+Output:
+
+```
+[[2 3]
+[4 5]]
+```
+
+In this example, the arrays `a` and `b` have different dimensions (2D vs. 1D), but the non-matching dimension in `b` (1) is equal to 1. Therefore, broadcasting is performed, and the operation is performed element-wise. The result is an array with the same shape as `a`.
+Benefits of Broadcasting
+
+
+Broadcasting simplifies a wide range of operations, including summations, multiplications, and matrix operations. It eliminates the need for loops and manual dimension matching, making code more efficient and concise. Additionally, it enables rapid vectorization of operations, which is essential for working with large datasets.
+Calculating Custom Mathematical Functions Using NumPy
+
+
+NumPy provides built-in mathematical functions for common operations. However, for custom functions, the `np.vectorize` decorator can be used to create functions that can be applied element-wise to arrays.
+Example: Calculating the Sigmoid Function
+
+
+```
+import numpy as np
+
+def sigmoid(x):
+return 1 / (1 + np.exp(-x))
+
+sigmoid_vectorized = np.vectorize(sigmoid)
+
+x = np.array([-1, 0, 1])
+print(sigmoid_vectorized(x))
+```
+
+Output:
+
+```
+[0.26894142 0.5 0.73105858]
+```
+
+In this example, the `sigmoid` function is defined and then vectorized using `np.vectorize`. This allows the function to be applied element-wise to an array `x`, calculating the sigmoid value for each element.
+Handling Missing Values in NumPy
+
+
+Missing values in data can be represented using special markers like `None` or `NaN`. NumPy provides efficient ways to handle missing values through functions like `np.isnan()` and `np.where()`.
+Example: Removing Missing Values from an Array
+
+
+```
+import numpy as np
+
+a = np.array([1, np.nan, 3, 4])
+Remove missing values using np.where()
+
+b = a[np.where(np.isnan(a) == False)]
+
+print(b)
+```
+
+Output:
+
+```
+[1. 3. 4.]
+```
+
+In this example, the array `a` contains missing values (represented by `NaN`). Using `np.where()`, we conditionally select only the elements where `NaN` is not present, effectively removing the missing values from the array.
+
 
