@@ -331,4 +331,78 @@ Output:
 
 In this example, the array `a` contains missing values (represented by `NaN`). Using `np.where()`, we conditionally select only the elements where `NaN` is not present, effectively removing the missing values from the array.
 
+20+ NamPy Tricks
+
+H2 Subtitles
+
+
+- MP.SORT()
+- MP.APPEND()
+- MP.CONCATENATE()
+- MP.UNIQUE()
+- MP.EXPAND_DIMS()
+- MP.WHERE()
+- MP.MAX()
+- MP.MIN()
+**NamPy Data Manipulation and Utility Functions**
+
+
+This article provides a comprehensive overview of NumPy data manipulation and utility functions, covering sorting, concatenation, value counting, aggregation, statistical measures, search operations, data editing, set operations, and clipping.
+**Data Manipulation Functions**
+
+
+* **Sorting**
+* `sort()`
+* **Concatenation**
+* `append()`
+* `concatenate()`
+* **Value Counting**
+* `value_counts()`
+* **Expansion**
+* `expand_dims()`
+* **Indexing and Selection**
+* `where()`
+**Statistical Functions**
+
+
+* **Aggregation**
+* `sum()`
+* `mean()`
+* `median()`
+* **Statistical Measures**
+* `argmax()`
+* `argmin()`
+* **Cumulative Operations**
+* `cumsum()`
+* `cumprod()`
+* **Histogram Calculation**
+* `histogram()`
+* **Correlation Coefficients**
+* `corrcoef()`
+**Search and Editing Functions**
+
+
+* **Multiple Item Search**
+* `isin()`
+* **Reversing**
+* `flip()`
+* **Editing**
+* `put()`
+* **Deletion**
+* `delete()`
+**Set Operations**
+
+
+* **Union**
+* `union1d()`
+* **Intersection**
+* `intersect1d()`
+* **Membership Test**
+* `in1d()`
+**Utility Functions**
+
+
+* **Clipping**
+* `clip()`
+
 
