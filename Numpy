@@ -1,7 +1,4 @@
-
-NumPy Crash Course
-
-Introduction to NumPy
+## Introduction to NumPy
 
 
 * NumPy is a fundamental package for scientific computing in Python.
